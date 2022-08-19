@@ -1,8 +1,17 @@
 import React from "react";
-import profilePic from '../../images/profilepic.jpg';
+import profilePic from '../../Assets/images/profilepic.jpg';
 import { TypeAnimation } from 'react-type-animation';
+import Resume from '../../Assets/Resume.pdf';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Link} from 'react-router-dom';
 
 const HeroSection = () => {
+
+    const resumeTostify = () =>{
+        toast('Resume Download Successfully');
+    }
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -37,11 +46,12 @@ const HeroSection = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary mr-6">Hire Me</button>
+          <button onClick={resumeTostify} className="btn btn-primary"> <Link to={Resume} target="_blank" download>Download Resume</Link> </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
   );
 };
-
 export default HeroSection;
