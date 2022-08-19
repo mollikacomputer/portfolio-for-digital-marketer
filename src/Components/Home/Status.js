@@ -12,19 +12,19 @@ const Status = () => {
     {
       id: 1,
       icon: `https://i.ibb.co/qrCv4T5/projects.jpg`,
-      quantity: "100+",
+      quantity: "6+",
       name: "Complete projects",
     },
     {
       id: 2,
       icon: `https://i.ibb.co/HGRrVMg/people.jpg`,
-      quantity: "50+",
+      quantity: "94+",
       name: "happy clients",
     },
     {
       id: 3,
       icon: `https://i.ibb.co/n7K6JWn/feedback.jpg`,
-      quantity: "10k+",
+      quantity: "3k+",
       name: "Publick actions",
     },
   ];
