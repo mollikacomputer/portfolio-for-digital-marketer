@@ -2,6 +2,7 @@ import React from "react";
 import People1 from "../../Assets/images/people1.png";
 import People2 from "../../Assets/images/people2.png";
 import People3 from "../../Assets/images/people3.png";
+import Rating from "./Rating";
 
 const Comments = () => {
   return (
@@ -26,6 +27,7 @@ const Comments = () => {
           <div className="card-body text-left align-middle">
             <h2 className="card-title"> Mr. Williams Henry</h2>
             <p> Austin, Texas </p>
+            <Rating/>
           </div>
         </div>
       </div>
