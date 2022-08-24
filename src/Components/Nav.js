@@ -43,6 +43,12 @@ const Nav = () => {
             <li>
               <NavLink to="/register">Register</NavLink>
             </li>
+            <li>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+            </li>
+            <li>
+              <NavLink to="/order">Order</NavLink>
+            </li>
           </ul>
         </div>
         <NavLink to="/" className="btn btn-ghost normal-case text-xl"> Portfolio </NavLink>
@@ -66,6 +72,12 @@ const Nav = () => {
             </li>
             <li>
               <NavLink to="/register">Register</NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard">Dashboard</NavLink>
+            </li>
+            <li>
+              <NavLink to="/order">Order</NavLink>
             </li>
         </ul>
       </div>
