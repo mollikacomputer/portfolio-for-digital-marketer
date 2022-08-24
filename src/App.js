@@ -9,6 +9,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import AddService from './Components/Dashboard/AddService';
 import Order from './Components/Order';
 import ManageReview from './Components/Dashboard/ManageReview';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div>
