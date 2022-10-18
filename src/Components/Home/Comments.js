@@ -9,10 +9,18 @@ const Comments = () => {
 
     <div id="comments" >
       <span className="flex justify-center items-center" >
-      <h2 className="text-5xl text-primary"> Public reaction</h2>
+      <h2 className="text-5xl text-primary" 
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      > Public reaction</h2>
       </span>
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16">
-      <div className="card bg-base-100 shadow-xl p-4">
+      <div className="card bg-base-100 shadow-xl p-4"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      data-aos="fade-right"
+      >
         <div>
           <p className="text-left">
            Seat Belt is awesome i can buy from again when we need.
@@ -31,7 +39,11 @@ const Comments = () => {
           </div>
         </div>
       </div>
-      <div className="card bg-base-100 shadow-xl p-4">
+      <div className="card bg-base-100 shadow-xl p-4"
+      data-aos="fade-down"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      >
         <div>
           <p className="text-left">
             Good job and product. Delivery time and management and product is awesome. come back again
@@ -49,7 +61,11 @@ const Comments = () => {
           </div>
         </div>
       </div>
-      <div className="card bg-base-100 shadow-xl p-4">
+      <div className="card bg-base-100 shadow-xl p-4"
+      data-aos="fade-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="1000"
+      >
         <div>
           <p className="text-left">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,

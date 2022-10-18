@@ -13,17 +13,21 @@ const HeroSection = () => {
     }
 
   return (
-    <div className="hero min-h-screen bg-base-200" data-aos="fade-right"
-    data-aos-easing="linear"
-    data-aos-duration="1500">
+    <div className="hero min-h-screen bg-base-200" 
+    >
       <div className="hero-content flex-col lg:flex-row">
         <img
           src={profilePic}
           className="max-w-sm rounded-lg shadow-2xl" alt="profile pic"
+          data-aos="flip-right"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
         />
-        <div data-aos="fade-down"
-            data-aos-easing="linear"
-            data-aos-duration="1500">
+        <div 
+          data-aos="fade-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+          >
           <h1 className="text-5xl font-bold">Walid Mama</h1>
           <TypeAnimation
             sequence={
