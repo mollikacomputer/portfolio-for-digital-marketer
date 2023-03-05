@@ -2,13 +2,12 @@ import React from "react";
 
 const Skill = () => {
   return (
-    <div id="skill" className=" card w-100 bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl">
       <div className="card-body card-title ">
         <h2 className="text-5xl"> My Skill lavel</h2>
         <div className="divider">X</div>
         <h2 className="text-4xl">
-          <pre>
-            HTML        <progress
+            HTML <progress
               className="progress progress-secondary w-56"
               value="100"
               max="100"
@@ -49,7 +48,6 @@ const Skill = () => {
               value="40"
               max="100"
             ></progress>
-          </pre>
         </h2>
       </div>
     </div>

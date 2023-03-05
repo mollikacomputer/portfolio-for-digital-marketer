@@ -42,9 +42,9 @@ const Status = () => {
           <SingleStatus key={info._id} info={info}></SingleStatus>
         ))}
       </div>
-      <div className="flex-none md:flex border gap-16 my-16 p-16 ">
+      <div className="flex-none md:flex border gap-8 my-16 p-16 ">
         <span>
-          <h2 className="text-primary text-3xl text-16 ">
+          <h2 className="text-primary text-2xl text-16 ">
             HAVE AN QUESTION ABOUT PRODUCT REQUEST
           </h2>
           <p>dont hisited contact us </p>

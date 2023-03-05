@@ -7,7 +7,7 @@ import Status from './Status';
 
 const Home = () => {
     return (
-        <div>
+        <div className='overflow-x-hidden'>
             <HeroSection/>
             <Skill/>
             <Status />
