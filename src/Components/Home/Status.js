@@ -27,6 +27,12 @@ const Status = () => {
       quantity: "3k+",
       name: "Publick actions",
     },
+    // {
+    //   id: 4,
+    //   icon: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb1w9XivnQ-AKv0B3Sucz3DjGHCvvtHu1tPQ&usqp=CAU`,
+    //   quantity: "3k+",
+    //   name: "Publick actions",
+    // },
   ];
 
   return (

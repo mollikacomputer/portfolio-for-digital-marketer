@@ -1,10 +1,18 @@
-import React from "react";
-import People1 from "../../Assets/images/people1.png";
-import People2 from "../../Assets/images/people2.png";
-import People3 from "../../Assets/images/people3.png";
-import Rating from "./Rating";
+import React, { useEffect, useState } from "react";
+// import People1 from "../../Assets/images/people1.png";
+// import People2 from "../../Assets/images/people2.png";
+// import People3 from "../../Assets/images/people3.png";
+import Rating from "./RatingStar";
+import Comment from "./Comment";
 
 const Comments = () => {
+  const [comments, setComments] = useState([]);
+  useEffect(() => {
+      fetch(`http://localhost:5000/comment`)
+      .then( res => res.json())
+      .then(data => setComments(data))
+  } ,[])
+
   return (
 
     <div id="comments" >
@@ -13,77 +21,16 @@ const Comments = () => {
       data-aos="flip-left"
       data-aos-easing="ease-out-cubic"
       data-aos-duration="1000"
-      > Public reaction</h2>
+      > Public reaction {comments.length} </h2>
       </span>
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16">
-      <div className="card bg-base-100 shadow-xl p-4"
-      data-aos-easing="ease-out-cubic"
-      data-aos-duration="1000"
-      data-aos="fade-right"
-      >
-        <div>
-          <p className="text-left">
-           Seat Belt is awesome i can buy from again when we need.
-          </p>
-        </div>
-        <div className="flex">
-          <div className="avatar my-8">
-            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={People2} alt="people3" />
-            </div>
-          </div>
-          <div className="card-body text-left align-middle">
-            <h2 className="card-title"> Mr. Williams Henry</h2>
-            <p> Austin, Texas </p>
-            <Rating/>
-          </div>
-        </div>
-      </div>
-      <div className="card bg-base-100 shadow-xl p-4"
-      data-aos="fade-down"
-      data-aos-easing="ease-out-cubic"
-      data-aos-duration="1000"
-      >
-        <div>
-          <p className="text-left">
-            Good job and product. Delivery time and management and product is awesome. come back again
-          </p>
-        </div>
-        <div className="flex">
-          <div className="avatar my-8">
-            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={People3} alt="people3" />
-            </div>
-          </div>
-          <div className="card-body text-left align-middle">
-            <h2 className="card-title"> Mr. Williams Henry</h2>
-            <p> Dallas, Texas </p>
-          </div>
-        </div>
-      </div>
-      <div className="card bg-base-100 shadow-xl p-4"
-      data-aos="fade-left"
-      data-aos-easing="ease-out-cubic"
-      data-aos-duration="1000"
-      >
-        <div>
-          <p className="text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
-            nostrum.
-          </p>
-        </div>
-        <div className="flex">
-          <div className="avatar my-8">
-            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={People1} alt="people1" />
-            </div>
-          </div>
-          <div className="card-body text-left align-middle">
-            <h2 className="card-title"> Mr. Williams Henry</h2>
-            <p> San francisco, Ca </p>
-          </div>
-        </div>
-      </div>
+
+      {
+        comments.map( comment => <Comment key={comment._id} comment={comment} >
+                    
+       </Comment> )
+        }
+      {/* <Comment/> */}
     </div>
     </div>
   );
