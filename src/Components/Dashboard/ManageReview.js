@@ -7,7 +7,7 @@ const ManageReview = () => {
         const name = event.target.name.value;
         const image = event.target.image.value;
         const description = event.target.description.value;
-        const rating = event.target.description.value;
+        const rating = event.target.rating.value;
         const commentInfo = {name, image, description, rating};
         console.log(commentInfo);
         event.target.reset();

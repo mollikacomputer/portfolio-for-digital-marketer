@@ -1,6 +1,7 @@
 import React from 'react';
 import Rating from './RatingStar';
-import { FaBeer } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
+
 
 const Comment = ({comment}) => {
 
@@ -26,9 +27,21 @@ const Comment = ({comment}) => {
               <h2 className="card-title"> {comment.name}</h2>
               <p>{comment.location} </p>
 
+              {
+              comment.rating == 1
+                ?(<FaStar/>) 
+                :comment.rating == 2
+                ?(<div className='flex'><FaStar/>, <FaStar/></div>) 
+                :comment.rating == 3
+                ?( <div className='flex'>  <FaStar/>, <FaStar/>, <FaStar/> </div>) 
+                :comment.rating == 4
+                ?(<div className='flex' > <FaStar/>, <FaStar/>, <FaStar/>, <FaStar/> </div>) 
+                :comment.rating == 5
+                ?(<div className='flex' ><FaStar/>, <FaStar/>, <FaStar/>, <FaStar/>, <FaStar/></div>)
+                : "Nothing"
+                }
 
             {comment.rating} Star
-
             </div>
           </div>
         </div>
