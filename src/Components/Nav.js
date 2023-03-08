@@ -1,6 +1,17 @@
 import React from "react";
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink, Navigate, useNavigate} from 'react-router-dom';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from "react-toastify";
+import { getAuth } from "firebase/auth";
+import app from "../firebase.init";
+import useFirebase from "../useHooks/useFirebase";
+
+const auth = getAuth(app);
+
 const Nav = () => {
+const {user, handleSignOut} = useFirebase();
+// console.log("navbar user name", user.displayName);
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -49,6 +60,7 @@ const Nav = () => {
             <li>
               <NavLink to="/order">Order</NavLink>
             </li>
+            
           </ul>
         </div>
         <NavLink to="/" className="btn btn-ghost normal-case text-xl"> Logo </NavLink>
@@ -68,22 +80,28 @@ const Nav = () => {
               <NavLink to="/service">Service</NavLink>
             </li>
             <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
               <NavLink to="/register">Register</NavLink>
             </li>
             <li>
               <NavLink to="/dashboard">Dashboard</NavLink>
             </li>
             <li>
-              <NavLink to="/order">Order</NavLink>
+              {
+                user?.uid
+                ?
+                <button onClick={handleSignOut}  > Sign Out</button>
+                :
+                <NavLink to="/login">Log in</NavLink>
+              }
             </li>
+            <span> {user?.uid ? user?.displayName : "User Name Null"} </span>
+           
         </ul>
       </div>
       <div className="navbar-end">
         <NavLink to="/" className="btn">Home</NavLink>
       </div>
+      <ToastContainer />
     </div>
   );
 };

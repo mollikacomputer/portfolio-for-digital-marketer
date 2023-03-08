@@ -13,11 +13,13 @@ import Order from './Components/Order';
 import ManageReview from './Components/Dashboard/ManageReview';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from './Routes/ProtectedRoute';
+import ManageService from './Components/Dashboard/ManageService';
 
-const auth = getAuth(app)
+
+const auth = getAuth(app);
+
 
 function App() {
-
   return (
     <div>
       <Nav/>
@@ -34,6 +36,7 @@ function App() {
         } >
           <Route index element={<AddService></AddService>} > Add Service </Route>
           <Route path='order' element={<Order></Order>} > Add Service </Route>
+          <Route path='manageservice' element={<ManageService></ManageService>} > Manage Service </Route>
           <Route path='managereview' element={<ManageReview></ManageReview>} > Manage Review </Route>
         </Route>
       </Routes>

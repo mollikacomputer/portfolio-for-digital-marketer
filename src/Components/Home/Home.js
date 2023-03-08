@@ -6,6 +6,7 @@ import Skill from './Skill';
 import Status from './Status';
 
 const Home = () => {
+    
     return (
         <div className='overflow-x-hidden'>
             <HeroSection/>

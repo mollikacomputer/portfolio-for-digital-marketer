@@ -2,19 +2,11 @@ import React from "react";
 import contactImg from "../Assets/images/contact.svg";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../firebase.init";
+import useFirebase from "../useHooks/useFirebase";
 const auth = getAuth(app);
 const Login = () => {
-  const provider = new GoogleAuthProvider();
-  const handleGoogleSignIn = (e) =>{
-    // e.preventDefault();
-    signInWithPopup(auth, provider)
-    .then(result =>{
-      const user = result.user;
-      console.log(user);
-    }).catch(error=>{
-      console.log(error);
-    })
-  }
+  const {user, signInWithGoogle} = useFirebase();
+  
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row-reverse">
@@ -62,7 +54,7 @@ const Login = () => {
             </div>
             <div class="divider">OR</div>
             <div class="form-control mt-6">
-              <button onClick={handleGoogleSignIn} class="btn btn-primary">Sign in with Google</button>
+              <button onClick={signInWithGoogle} class="btn btn-primary">Sign in with Google</button>
             </div>
           </div>
         </div>
