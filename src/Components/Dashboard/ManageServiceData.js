@@ -1,6 +1,10 @@
 import React from 'react';
+import useService from '../../useHooks/useService';
 import { HiTrash, HiPencilAlt } from "react-icons/hi";
-const ManageServiceData = ({service}) => {
+import { Link } from 'react-router-dom';
+import UpdateService from './UpdateService';
+const ManageServiceData = ({service, services, setServices, handleDeleteService}) => {
+
     console.log("Manage service data", service);
     return (
         <div>
@@ -18,12 +22,12 @@ const ManageServiceData = ({service}) => {
           {service?.name}
          </td>
         <td> { service?.budget}</td>
-        <th>
-          <button className="btn btn-ghost btn-xs"> <HiTrash/> </button>
-        </th>
-        <th>
-          <button className="btn btn-ghost btn-xs"> <HiPencilAlt/> </button>
-        </th>
+        <td>
+          <button onClick={()=>handleDeleteService(service._id)} className="btn btn-ghost btn-xs"> <HiTrash/> </button>
+        </td>
+        <td>
+         <Link to={`/dashboard/updateservice/${service._id}`} > <button className="btn btn-ghost btn-xs"> <HiPencilAlt/> </button> </Link>
+        </td>
       </tr>
         </div>
     );
