@@ -8,7 +8,7 @@ const Service = ({service}) => {
     data-aos-duration="2000"
     >
       <figure>
-        <img src={service.image} alt="Shoes" alt="image" />
+        <img src={service.image} alt="service image" alt="image" />
       </figure>
       <div class="card-body">
         <h2 class="card-title"> {service.name} </h2>

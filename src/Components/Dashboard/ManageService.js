@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import ManageServiceData from "./ManageServiceData";
-import { useParams } from "react-router-dom";
 
 const ManageService = () => {
-
   const [services, setServices] = useState([]);
   useEffect(() => {
       fetch(`http://localhost:5000/service`)
@@ -31,9 +28,7 @@ const ManageService = () => {
       })
     }
   };
-
   // handle update
-
   return (
     <div>
       

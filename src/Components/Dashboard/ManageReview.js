@@ -1,46 +1,68 @@
-import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import Rating from '../Home/RatingStar';
+import React, { useEffect, useState } from "react";
+import ManageServiceData from "./ManageServiceData";
+
 const ManageReview = () => {
-    const handleAddReview = (event) => {
-        event.preventDefault();
-        const name = event.target.name.value;
-        const image = event.target.image.value;
-        const description = event.target.description.value;
-        const rating = event.target.rating.value;
-        const commentInfo = {name, image, description, rating};
-        console.log(commentInfo);
-        event.target.reset();
-        fetch('http://localhost:5000/comment', {
-            method: 'POST',
-            headers:{
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(commentInfo)
-        })
-        .then(res => res.json())
-        .then( data => {
-            toast('comment added', data);
-            event.target.reset();
-        })
+  const [comments, setComments] = useState([]);
+  useEffect(() => {
+      fetch(`http://localhost:5000/comment`)
+      .then( res => res.json())
+      .then(data => setComments(data))
+  } ,[]);
+  
+  const handleDeleteService = (id) =>{
+    const proceed = window.confirm("Are you sure you want to delete?");
+    if(proceed){
+      // console.log("deleting service data with id", id);
+      const url = `http://localhost:5000/service/${id}`;
+      fetch(url, {
+        method: 'DELETE'
+      })
+      .then(res=> res.json())
+      .then(data => {
+        if(data.deletedCount>0){
+          console.log('deleted');
+          const remaining = comments.filter(comment => comment?._id !== id );
+          setComments(remaining);
+        }
+        console.log(data);
+      })
     }
-    return (
-        <div>
-            <h2 className='text-3xl'> Manage Review</h2>
-            <form onSubmit={handleAddReview} className='flex flex-col' >
-            <input type="text" name='name' placeholder="Client Name" class="input input-bordered w-full max-w-xs mb-2" /> 
-            <input type="text" name='image' placeholder="image link" class="input input-bordered w-full max-w-xs mb-2" /> 
-            <input type="text" name='location' placeholder="Address" class="input input-bordered w-full max-w-xs mb-2" /> 
-            <textarea type='text' name='description' placeholder="comment description" class="textarea textarea-bordered w-full max-w-xs mb-2"></textarea>
-            
-            <input type="number" name='rating' placeholder="Please 1-5 Stare Rating" class="input input-bordered w-full max-w-xs mb-2" /> 
-            {/* <Rating/> */}
-            <input type='submit' value='submit' class="btn w-full max-w-xs" />
-            
-            </form>
-            <ToastContainer/>
-        </div>
-    );
+  };
+  // handle update
+  return (
+    <div>
+      
+      <h2 className="text-2xl "> Manage Service {comments.length} </h2>
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full">
+          {/* head */}
+          <thead>
+            <tr>
+              <th> Service Name </th>
+              <th> Picture </th>
+              <th> Delete </th>
+              <th> Update </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comments.map( service => 
+              <ManageServiceData 
+                key={service?._id} 
+                service={service} 
+                handleDeleteService={handleDeleteService}
+                services={comments}
+                setServices={comments}
+                />
+                  )
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default ManageReview;
+
+

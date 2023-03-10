@@ -1,8 +1,6 @@
 import React from 'react';
-import useService from '../../useHooks/useService';
 import { HiTrash, HiPencilAlt } from "react-icons/hi";
 import { Link } from 'react-router-dom';
-import UpdateService from './UpdateService';
 const ManageServiceData = ({service, services, setServices, handleDeleteService}) => {
 
     console.log("Manage service data", service);

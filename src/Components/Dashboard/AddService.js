@@ -27,7 +27,7 @@ const AddService = () => {
     }
     return (
         <div>
-            <h2 className='text-5xl my-6' > Add Service</h2>
+            <h2 className='text-3xl my-6' > Add New Service</h2>
             <form onSubmit={handleAddService} className='flex flex-col' >
             <input type="text" name='name' placeholder="Service Name" class="input input-bordered w-full max-w-xs mb-2" /> 
             <input type="text" name='image' placeholder="image link" class="input input-bordered w-full max-w-xs mb-2" /> 
