@@ -20,7 +20,7 @@ const ManageCommentData = ({comment, comments, setComments, handleDeleteComment}
         <td>
           {comment?.name}
          </td>
-        <td> { comment?.budget}</td>
+        <td> { comment?.location}</td>
         <td>
           <button onClick={()=>handleDeleteComment(comment._id)} className="btn btn-ghost btn-xs"> <HiTrash/> </button>
         </td>
@@ -33,14 +33,3 @@ const ManageCommentData = ({comment, comments, setComments, handleDeleteComment}
 };
 
 export default ManageCommentData;
-// import React from 'react';
-
-// const ManageCommentData = () => {
-//     return (
-//         <div>
-//             <h2 className='text-2xl'> Manage Comment Data</h2> 
-//         </div>
-//     );
-// };
-
-// export default ManageCommentData;
