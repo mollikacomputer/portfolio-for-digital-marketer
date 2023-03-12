@@ -5,20 +5,40 @@ import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import app from "../firebase.init";
 import useFirebase from "../useHooks/useFirebase";
 import { useState } from "react";
+import Loading from "./Common/Loading";
+import { useNavigate } from "react-router-dom";
 const auth = getAuth(app);
 
+
 const Register = () => {
-  const {user, signInWithGoogle} = useFirebase();
+
+  const navigate = useNavigate();
+  const {googleUser, signInWithGoogle} = useFirebase();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [name, setName] = useState();
   const [
     createUserWithEmailAndPassword,
-    // user,
-    // loading,
-    // error,
+    user,
+    loading,
+    error,
   ] = useCreateUserWithEmailAndPassword(auth);
-  
+  console.log(user);
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <Loading/>;
+  }
+  if (user || googleUser) {
+    return (
+      navigate('/', { replace: true })
+    );
+  }
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row-reverse">

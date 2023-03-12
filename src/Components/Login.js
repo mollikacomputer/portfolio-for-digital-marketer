@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import contactImg from "../Assets/images/contact.svg";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../firebase.init";
 import useFirebase from "../useHooks/useFirebase";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import Loading from "./Common/Loading";
+import { useNavigate } from "react-router-dom";
 const auth = getAuth(app);
+
 const Login = () => {
-  const {user, signInWithGoogle} = useFirebase();
-  
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const {googleUser, signInWithGoogle} = useFirebase();
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+ 
+   if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <Loading/>;
+  }
+  if (user || googleUser) {
+    return (navigate('/', {replace:true})
+    );
+  }
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row-reverse">
@@ -29,9 +56,11 @@ const Login = () => {
                 <span class="label-text">Email</span>
               </label>
               <input
-                type="text"
-                placeholder="email"
                 class="input input-bordered"
+                placeholder="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div class="form-control">
@@ -39,9 +68,11 @@ const Login = () => {
                 <span class="label-text">Password</span>
               </label>
               <input
-                type="text"
-                placeholder="password"
                 class="input input-bordered"
+                placeholder="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <label class="label">
                 <a href="#" class="label-text-alt link link-hover">
@@ -50,7 +81,7 @@ const Login = () => {
               </label>
             </div>
             <div class="form-control mt-6">
-              <button class="btn btn-primary">Login</button>
+              <button onClick={()=> signInWithEmailAndPassword(email, password)} class="btn btn-primary">Login</button>
             </div>
             <div class="divider">OR</div>
             <div class="form-control mt-6">
