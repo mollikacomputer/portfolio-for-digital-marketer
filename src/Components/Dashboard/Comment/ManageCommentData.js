@@ -6,7 +6,7 @@ const ManageCommentData = ({comment, comments, setComments, handleDeleteComment}
 
     console.log("Manage service data", comment);
     return (
-        <div>
+        <>
       <tr>
         <td>
           <div class="flex items-center space-x-3">
@@ -28,7 +28,7 @@ const ManageCommentData = ({comment, comments, setComments, handleDeleteComment}
          <Link to={`/dashboard/updatecomment/${comment._id}`} > <button className="btn btn-ghost btn-xs"> <HiPencilAlt/> </button> </Link>
         </td>
       </tr>
-        </div>
+        </>
     );
 };
 

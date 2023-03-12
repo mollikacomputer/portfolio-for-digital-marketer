@@ -2,7 +2,7 @@ import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signO
 import { useState } from "react"
 import app from "../firebase.init";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, } from "react-router-dom";
 
 const auth = getAuth(app);
 

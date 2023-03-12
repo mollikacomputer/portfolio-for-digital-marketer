@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, NavLink, Navigate, useNavigate} from 'react-router-dom';
-import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+
 import { toast, ToastContainer } from "react-toastify";
 import { getAuth } from "firebase/auth";
 import app from "../firebase.init";
@@ -89,17 +89,13 @@ const {user, handleSignOut} = useFirebase();
               {
                 user?.uid
                 ?
-                <button onClick={handleSignOut}  > Sign Out</button>
+               <Link to='/' > <button onClick={handleSignOut}  > Sign Out</button></Link>
                 :
                 <NavLink to="/login">Log in</NavLink>
               }
             </li>
-            <span> {user?.uid ? user?.displayName : "User Name Null"} </span>
-           
+            {/* <span> {user?.uid ? user?.displayName : "Current Null"} </span> */}
         </ul>
-      </div>
-      <div className="navbar-end">
-        <NavLink to="/" className="btn">Home</NavLink>
       </div>
       <ToastContainer />
     </div>

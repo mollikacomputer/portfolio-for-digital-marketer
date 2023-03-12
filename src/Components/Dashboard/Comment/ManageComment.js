@@ -34,8 +34,8 @@ const ManageComment = () => {
     <div>
       
       <h2 className="text-2xl "> Manage  {comments.length} Comment </h2>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+      <div className="overflow-x-auto ">
+        <table className="table table-compact ">
           {/* head */}
           <thead>
             <tr>
