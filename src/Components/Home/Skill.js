@@ -6,8 +6,9 @@ const Skill = () => {
       <div className="card-body card-title ">
         <h2 className="text-5xl"> My Skill lavel</h2>
         <div className="divider">X</div>
+        <pre>
         <h2 className="text-4xl">
-            HTML <progress
+            HTML        <progress
               className="progress progress-secondary w-56"
               value="100"
               max="100"
@@ -48,7 +49,9 @@ const Skill = () => {
               value="40"
               max="100"
             ></progress>
+            
         </h2>
+        </pre>
       </div>
     </div>
   );
