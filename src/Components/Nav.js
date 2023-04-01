@@ -2,14 +2,21 @@ import React from "react";
 import {Link, NavLink, Navigate, useNavigate} from 'react-router-dom';
 
 import { toast, ToastContainer } from "react-toastify";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import app from "../firebase.init";
 import useFirebase from "../useHooks/useFirebase";
 
 const auth = getAuth(app);
 
 const Nav = () => {
-const {user, handleSignOut} = useFirebase();
+const {user} = useFirebase();
+
+const handleSignOut = ()=>{
+  signOut(auth)
+  .then(()=>{})
+  localStorage.removeItem('accessToken');
+};
+
 // console.log("navbar user name", user.displayName);
 
   return (

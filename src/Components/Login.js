@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import contactImg from "../Assets/images/contact.svg";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../firebase.init";
 import useFirebase from "../useHooks/useFirebase";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from "./Common/Loading";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useToken from "../Hooks/useToken";
 const auth = getAuth(app);
 
 const Login = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {googleUser, signInWithGoogle} = useFirebase();
@@ -20,7 +19,10 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
-
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [token] = useToken(user || googleUser);
  
    if (error) {
@@ -30,12 +32,12 @@ const Login = () => {
       </div>
     );
   }
+  if(token){
+    return navigate(from, {replace:true});
+  }
+  
   if (loading) {
     return <Loading/>;
-  }
-  if (token) {
-    return (navigate('/', {replace:true})
-    );
   }
   return (
     <div class="hero min-h-screen bg-base-200">
