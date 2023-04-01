@@ -9,12 +9,14 @@ import Footer from './Components/Common/Footer';
 import Dashboard from './Components/Dashboard/Dashboard';
 import ProtectedRoute from './Routes/ProtectedRoute';
 import { PrivateRoute } from './Routes/PrivateRoute';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 
 const auth = getAuth(app);
 
 function App() {
   return (
+    <QueryClientProvider client={QueryClient}>
     <div>
       <Nav/>
       <Routes>
@@ -34,8 +36,10 @@ function App() {
   
         </Route>
       </Routes>
+
       <Footer/>
     </div>
+    </QueryClientProvider>
   );
 }
 

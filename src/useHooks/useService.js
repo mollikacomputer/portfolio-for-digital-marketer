@@ -11,7 +11,7 @@ const useService = () => {
   const handleDeleteService = (id) =>{
     const proceed = window.confirm("Are you sure you want to delete?");
     if(proceed){
-      console.log("deleting service data with id", id);
+      // console.log("deleting service data with id", id);
       const url = `http://localhost:5000/service/${id}`;
       fetch(url, {
         method: 'DELETE'

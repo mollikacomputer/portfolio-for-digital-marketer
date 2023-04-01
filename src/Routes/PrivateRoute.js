@@ -6,6 +6,7 @@ import ManageService from "../Components/Dashboard/ManageService";
 import AddComment from "../Components/Dashboard/Comment/AddComment";
 import ManageComment from "../Components/Dashboard/Comment/ManageComment";
 import UpdateComment from "../Components/Dashboard/Comment/UpdateComment";
+import Users from "../Components/Dashboard/Users";
 
 
 export const PrivateRoute = [
@@ -19,5 +20,6 @@ export const PrivateRoute = [
     {path:'/dashboard/addcomment/', Name: AddComment, Component: AddComment},
     {path:'/dashboard/managecomment/', Name: ManageComment, Component: ManageComment},
     {path:'/dashboard/updatecomment/:id', Name: UpdateComment, Component: UpdateComment},
-    {path:'/dashboard/updatecomment/:id', Name: UpdateComment, Component: UpdateComment}
+    {path:'/dashboard/updatecomment/:id', Name: UpdateComment, Component: UpdateComment},
+    {path:'/dashboard/users/', Name: Users, Component: Users}
 ]
