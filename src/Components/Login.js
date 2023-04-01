@@ -6,6 +6,7 @@ import useFirebase from "../useHooks/useFirebase";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from "./Common/Loading";
 import { useNavigate } from "react-router-dom";
+import useToken from "../Hooks/useToken";
 const auth = getAuth(app);
 
 const Login = () => {
@@ -19,6 +20,8 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+
+  const [token] = useToken(user || googleUser);
  
    if (error) {
     return (
@@ -30,7 +33,7 @@ const Login = () => {
   if (loading) {
     return <Loading/>;
   }
-  if (user || googleUser) {
+  if (token) {
     return (navigate('/', {replace:true})
     );
   }

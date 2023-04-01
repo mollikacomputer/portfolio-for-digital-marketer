@@ -14,7 +14,6 @@ const auth = getAuth(app);
 
 
 const Register = () => {
-
   const navigate = useNavigate();
   const {googleUser, signInWithGoogle} = useFirebase();
   const [email, setEmail] = useState();
@@ -27,7 +26,9 @@ const Register = () => {
     error,
   ] = useCreateUserWithEmailAndPassword(auth);
   console.log(user);
+
   const [token] = useToken(user || googleUser);
+
   if (error) {
     return (
       <div>
@@ -38,12 +39,10 @@ const Register = () => {
   if (loading) {
     return <Loading/>;
   }
-  if (user || googleUser) {
-    return (
-      // navigate('/', { replace: true })
-      {token}
-    );
+  if (token) {
+      navigate('/');
   }
+
 
   return (
     <div class="hero min-h-screen bg-base-200">
