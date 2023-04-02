@@ -20,7 +20,7 @@ const ManageService = () => {
       .then(res=> res.json())
       .then(data => {
         if(data.deletedCount>0){
-          console.log('deleted');
+          // console.log('deleted');
           const remaining = services.filter(service => service?._id !== id );
           setServices(remaining);
         }
@@ -38,6 +38,7 @@ const ManageService = () => {
           {/* head */}
           <thead>
             <tr>
+              <th></th>
               <th> Service Name </th>
               <th> Picture </th>
               <th> Delete </th>
