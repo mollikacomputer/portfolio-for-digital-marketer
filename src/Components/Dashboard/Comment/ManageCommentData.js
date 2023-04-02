@@ -20,7 +20,7 @@ const ManageCommentData = ({comment, comments, setComments, handleDeleteComment}
         <td>
           {comment?.name}
          </td>
-        <td> { comment?.location}</td>
+        {/* <td> { comment?.location}</td> */}
         <td>
           <button onClick={()=>handleDeleteComment(comment._id)} className="btn btn-ghost btn-xs"> <HiTrash/> </button>
         </td>

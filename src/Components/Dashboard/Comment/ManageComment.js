@@ -39,8 +39,10 @@ const ManageComment = () => {
           {/* head */}
           <thead>
             <tr>
-              <th> Comment Name </th>
+
               <th> Picture </th>
+              <th > Comment Name </th>
+              {/* <th > Location </th> */}
               <th> Delete </th>
               <th> Update </th>
             </tr>

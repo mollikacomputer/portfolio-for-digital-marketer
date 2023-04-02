@@ -1,13 +1,25 @@
 import React from "react";
 
 const UserRow = ({ user }) => {
-console.log(user);
+const {email, role} = user;
+const makeAdmin = () =>{
+  fetch(`http://localhost:5000/users/admin/${email}`,{
+    method:"PUT",
+    headers:{
+      authorization:`Bearer ${localStorage.getItem('accessToken')}`
+    }
+  })
+  .then(res=>res.json())
+  .then(data => {
+    console.log(data);
+  })
+}
   return (
       <tr>
         <th> {user?.email} </th>
         <td> {user?._id} </td>
-        <td> <button class="btn btn-xs"> Make A Admin </button> </td>
-        <td> <button class="btn btn-xs"> Admin </button> </td>
+        <td> {role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs"> Make Admin </button>} </td>
+        <td> <button className="btn btn-xs"> Remove User </button> </td>
       </tr>
   );
 };

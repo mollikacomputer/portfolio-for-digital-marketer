@@ -33,14 +33,14 @@ const ManageService = () => {
     <div>
       
       <h2 className="text-2xl "> Manage Service {services.length} </h2>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table">
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th> Service Name </th>
               <th> Picture </th>
+              <th> Title </th>
+              <th> Budget </th>
               <th> Delete </th>
               <th> Update </th>
             </tr>
