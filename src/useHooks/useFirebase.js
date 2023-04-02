@@ -7,7 +7,6 @@ import useToken from "../Hooks/useToken";
 
 const auth = getAuth(app);
 
-
 const useFirebase=()=>{
     const [user, setUser] = useState({});
     const [accessToken] = useToken();
