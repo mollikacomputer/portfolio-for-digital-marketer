@@ -12,7 +12,7 @@ const AddComment = () => {
         const commentInfo = {name, image, location, rating, description};
         console.log(commentInfo);
         event.target.reset();
-        fetch('http://localhost:5000/comment', {
+        fetch('https://portfolio-walid-server-mollikacomputer.vercel.app/comment', {
             method: 'POST',
             headers:{
                 'Content-type': 'application/json'

@@ -6,7 +6,7 @@ const UpdateComment = () => {
     const {id} = useParams();
     const [updateComment, setUpdateComment] = useState({});
     useEffect(()=>{
-        const url = `http://localhost:5000/dashboard/updatecomment/${id}`;
+        const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/dashboard/updatecomment/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setUpdateComment(data))
@@ -22,7 +22,7 @@ const UpdateComment = () => {
         const commentUpdateInfo = {name, image, rating, location, description};
         console.log(commentUpdateInfo);
         event.target.reset();
-        const url = `http://localhost:5000/dashboard/updatecomment/${id}`
+        const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/dashboard/updatecomment/${id}`
         fetch(url, {
             method: 'PUT',
             headers:{

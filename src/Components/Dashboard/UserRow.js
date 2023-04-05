@@ -7,7 +7,7 @@ const UserRow = ({ user }) => {
 const {email, role} = user;
 const [users, setUsers] = useState([]);
 const makeAdmin = () =>{
-  fetch(`http://localhost:5000/users/admin/${email}`,{
+  fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/users/admin/${email}`,{
     method:"PUT",
     headers:{
       authorization:`Bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const handleDeleteUser = (id) =>{
   const proceed = window.confirm("Are you sure you want to delete?");
   if(proceed){
     // console.log("deleting service data with id", id);
-    const url = `http://localhost:5000/users/${id}`;
+    const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/users/${id}`;
     fetch(url, {
       method: 'DELETE'
     })

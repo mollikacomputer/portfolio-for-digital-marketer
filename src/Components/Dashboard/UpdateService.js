@@ -6,7 +6,7 @@ const UpdateService = () => {
     const {id} = useParams();
     const [updateService, setUpdateService] = useState({});
     useEffect(()=>{
-        const url = `http://localhost:5000/dashboard/updateservice/${id}`;
+        const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/dashboard/updateservice/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setUpdateService(data))
@@ -21,7 +21,7 @@ const UpdateService = () => {
         const serviceUpdateInfo = {name, image, budget, description};
         console.log(serviceUpdateInfo);
         event.target.reset();
-        const url = `http://localhost:5000/dashboard/updateservice/${id}`
+        const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/dashboard/updateservice/${id}`
         fetch(url, {
             method: 'PUT',
             headers:{

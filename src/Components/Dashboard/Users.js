@@ -6,7 +6,7 @@ import UserRow from "./UserRow";
 const Users = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/`,{
+    fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/users/`,{
       method:"GET",
       headers:{
         'authorization':`Bearer ${localStorage.getItem('accessToken')}`

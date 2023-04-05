@@ -4,7 +4,7 @@ import Comment from "./Comment";
 const AllComments = () => {
   const [comments, setComments] = useState([]);
   useEffect(() => {
-      fetch(`http://localhost:5000/comment`)
+      fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/comment`)
       .then( res => res.json())
       .then(data => setComments(data))
   } ,[])
