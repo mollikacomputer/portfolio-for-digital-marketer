@@ -5,7 +5,7 @@ const useToken = (user) => {
         const email = user?.user?.email;
         const currentUser = {email:email};
         if(email){
-            fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/users/${email}`, {
+            fetch(`https://walid-server.vercel.app/users/${email}`, {
                 method:"PUT",
                 headers:{
                     'content-type':'application/json'
@@ -35,7 +35,7 @@ export default useToken;
 //         const email = user?.user?.email;
 //         const currentUser = {email:email};
 //         if(email){
-//             const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/users/${email}`
+//             const url = `https://walid-server.vercel.app/users/${email}`
 //             fetch(url,{
 //             method:"PUT",
 //             headers:{

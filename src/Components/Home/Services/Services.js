@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/service`)
+        fetch(`https://walid-server.vercel.app/service`)
         .then( res => res.json())
         .then(data => setServices(data))
     } ,[]);

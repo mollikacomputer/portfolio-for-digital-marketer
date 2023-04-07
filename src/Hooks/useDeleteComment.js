@@ -6,7 +6,7 @@ const useDeleteComment = () => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if(proceed){
           // console.log("deleting service data with id", id);
-          const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/comment/${id}`;
+          const url = `https://walid-server.vercel.app/comment/${id}`;
           fetch(url, {
             method: 'DELETE'
           })

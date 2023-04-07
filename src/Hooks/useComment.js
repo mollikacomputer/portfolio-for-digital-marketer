@@ -4,7 +4,7 @@ const useComment = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        fetch("https://portfolio-walid-server-mollikacomputer.vercel.app/comment")
+        fetch("https://walid-server.vercel.app/comment")
         .then(res => res.json())
         .then( data => setComments(data))
     },[]);

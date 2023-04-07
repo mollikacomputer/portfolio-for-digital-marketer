@@ -5,7 +5,7 @@ const ManageComment = () => {
 
   const [comments, setComments] = useState([]);
   useEffect(() => {
-      fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/comment`)
+      fetch(`https://walid-server.vercel.app/comment`)
       .then( res => res.json())
       .then(data => setComments(data))
   } ,[]);
@@ -14,7 +14,7 @@ const ManageComment = () => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if(proceed){
       // console.log("deleting service data with id", id);
-      const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/comment/${id}`;
+      const url = `https://walid-server.vercel.app/comment/${id}`;
       fetch(url, {
         method: 'DELETE'
       })

@@ -4,7 +4,7 @@ import ManageServiceData from "./ManageServiceData";
 const ManageService = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-      fetch(`https://portfolio-walid-server-mollikacomputer.vercel.app/service`)
+      fetch(`https://walid-server.vercel.app/service`)
       .then( res => res.json())
       .then(data => setServices(data))
   } ,[]);
@@ -13,7 +13,7 @@ const ManageService = () => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if(proceed){
       // console.log("deleting service data with id", id);
-      const url = `https://portfolio-walid-server-mollikacomputer.vercel.app/service/${id}`;
+      const url = `https://walid-server.vercel.app/service/${id}`;
       fetch(url, {
         method: 'DELETE'
       })

@@ -11,7 +11,7 @@ const AddService = () => {
         const serviceInfo = {name, image, budget, description};
         console.log(serviceInfo);
         event.target.reset();
-        fetch('https://portfolio-walid-server-mollikacomputer.vercel.app/service', {
+        fetch('https://walid-server.vercel.app/service', {
             method: 'POST',
             headers:{
                 'Content-type': 'application/json'
